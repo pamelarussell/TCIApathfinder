@@ -2,15 +2,17 @@ rm(list=ls())
 
 library(httr)
 
-# Get API key from environment variable
-api_key <- Sys.getenv("TCIA_API_KEY")
-
-# Make sure API key is set
-if(identical(api_key, "")) {
-  stop("Please request and store a valid API key (instructions: https://github.com/pamelarussell/TCIApathfinder)")
+# Function to get API key
+get_api_key <- function() {
+  api_key <- Sys.getenv("TCIA_API_KEY")
+  if(identical(api_key, "")) {
+    stop("Please request and store a valid API key (instructions: https://github.com/pamelarussell/TCIApathfinder)")
+  }
+  api_key
 }
 
 # The base URL and resource
+api_key <- get_api_key()
 base_url <- "https://services.cancerimagingarchive.net/services/v3"
 resource <- "TCIA"
 
@@ -27,10 +29,17 @@ get_response <- function(endpoint, query) {
   stop_for_status(response)
 }
 
-# Function to get the names of all collections
+#' Get the names of all TCIA collections
+#'
+#' @return Character vector of collection names
+#'
+#' @examples
+#' get_collection_names()
+#'
+#' @export
 get_collection_names <- function() {
-  response <- get_response("/query/getCollectionValues", 
-                           query = list(format = "json", 
+  response <- get_response("/query/getCollectionValues",
+                           query = list(format = "json",
                                         api_key = api_key))
   sort(unname(unlist(content(response))))
 }
