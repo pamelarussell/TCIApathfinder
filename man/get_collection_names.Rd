@@ -6,6 +6,19 @@
 \usage{
 get_collection_names()
 }
+\value{
+List containing elements:
+\itemize{
+  \item \code{collection_names}: character vector of TCIA collection names
+  \item \code{content}: parsed API response content
+  \item \code{path}: URL path
+  \item \code{response}: API response
+}
+}
 \description{
 Get the names of all TCIA collections
+}
+\examples{
+get_collection_names()
+
 }
