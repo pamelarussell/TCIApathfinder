@@ -8,10 +8,11 @@ get_modality_names(collection = NULL, body_part = NULL)
 }
 \arguments{
 \item{collection}{TCIA collection name. If \code{collection} is \code{NULL},
-modality names from all collections will be returned.}
+modality names from all collections will be returned. To get a list of available collection
+names, call \code{get_collection_names()}.}
 
 \item{body_part}{Body part name. If \code{body_part} is \code{NULL}, modality names
-for all body parts will be returned. To get a list of valid body part names, call
+for all body parts will be returned. To get a list of available body part names, call
 \code{get_body_part_names()}.}
 }
 \value{

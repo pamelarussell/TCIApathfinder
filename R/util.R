@@ -52,5 +52,11 @@ process_json_response <- function(response) {
   jsonlite::fromJSON(httr::content(response, as = "text", encoding = "UTF-8"), simplifyVector = F)
 }
 
-
+# Validate date format
+validate_date <- function(date) {
+  date_fmt <- as.Date(date, format = "%Y-%m-%d")
+  if(is.na(date_fmt) || nchar(date) != 10 || substr(date, 5, 5) != "-" || substr(date, 8, 8) != "-") {
+    stop(paste("Invalid date format: ", date, ". Use YYYY-MM-DD.", sep = ""))
+  }
+}
 

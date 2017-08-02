@@ -8,7 +8,8 @@ get_patient_ids(collection = NULL)
 }
 \arguments{
 \item{collection}{TCIA collection name. If \code{collection} is \code{NULL},
-patients from all collections will be returned.}
+patients from all collections will be returned. To get a list of available collection
+names, call \code{get_collection_names()}.}
 }
 \value{
 List containing elements:

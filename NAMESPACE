@@ -2,5 +2,7 @@
 
 export(get_body_part_names)
 export(get_collection_names)
+export(get_manufacturer_names)
 export(get_modality_names)
 export(get_patient_ids)
+export(get_patients_by_modality)
