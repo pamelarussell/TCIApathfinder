@@ -1,9 +1,10 @@
 
 test_that("Structure of collection names value", {
   collections <- get_collection_names()
-  expect_equal(length(collections), 4)
-  expect_identical(collections$path, "/query/getCollectionValues")
+  expect_equal(length(collections), 3)
+  expect_true(length(collections$collection_names) > 50)
   expect_true(length(collections$content) > 50)
+  expect_equal(class(collections$response), "response")
 })
 
 test_that("List of collections contains TCGA-BRCA", {
