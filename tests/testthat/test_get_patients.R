@@ -1,7 +1,5 @@
 message("\nTesting get_patients")
 
-suppressPackageStartupMessages(library(dplyr))
-
 patients_all <- get_patients()
 patients_tcga <- get_patients("TCGA-BRCA")
 
@@ -28,7 +26,7 @@ test_that("Number of BRCA patients", {
 
 test_that("Individual BRCA patient", {
   pid <- "TCGA-OL-A6VO"
-  one_patient <- patients_all$patients %>% dplyr::filter(patient_id == pid)
+  one_patient <- patients_all[which(patients_all$patient_id == pid), ]
   expect_identical(pid, as.character(one_patient[1, "patient_name"]))
   expect_identical("F", as.character(one_patient[1, "patient_sex"]))
   expect_identical("TCGA-BRCA", as.character(one_patient[1, "collection"]))

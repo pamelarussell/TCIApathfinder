@@ -7,5 +7,5 @@ Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: testthat, httr, jsonlite, dplyr
+Imports: testthat, httr, jsonlite
 RoxygenNote: 6.0.1
