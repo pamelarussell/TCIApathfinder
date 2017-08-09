@@ -361,8 +361,86 @@ get_patient_studies <- function(collection = NULL, patient_id = NULL, study_inst
   ), class = "tcia_api")
 }
 
-
-
+#' Get image series information
+#'
+#' @param collection TCIA collection name. To get a list of available collection
+#' names, call \code{get_collection_names()}. If \code{collection} is \code{NULL}, information
+#' for all relevant collections will be returned.
+#'
+#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patients()}.
+#' If \code{patient_id} is \code{NULL}, information for all relevant patients will be returned.
+#'
+#' @param study_instance_uid Study instance UID. If \code{study_instance_uid} is \code{NULL}, information
+#' for all relevant study instance UIDs will be returned.
+#'
+#' @param series_instance_uid Series instance UID. To get a list of available series instance UIDs, call
+#' this function leaving out parameter \code{series_instance_uid}. If \code{series_instance_uid} is \code{NULL},
+#' information for all relevant series will be returned.
+#'
+#' @param modality Modality name. To get a list of available modality names, call \code{get_modality_names()}.
+#' If \code{modality} is \code{NULL}, information for all relevant modalities will be returned.
+#'
+#' @param body_part_examined Body part name. To get a list of available body part names, call
+#' \code{get_body_part_names()}. If \code{body_part_examined} is \code{NULL}, information
+#' for all relevant body parts will be returned. IMPORTANT: a bug in this query key has been observed in the TCIA API.
+#' If queries using this key return zero results, try removing this parameter.
+#'
+#' @param manufacturer_model_name Manufacturer model name. To get a list of available model names, call
+#' this function leaving out parameter \code{manufacturer_model_name}. If \code{manufacturer_model_name} is \code{NULL},
+#' information for all relevant model names will be returned.
+#'
+#' @param manufacturer Manufacturer name. To get a list of available manufacturer names, call
+#' \code{get_manufacturer_names()}. If \code{manufacturer} is \code{NULL},
+#' information for all relevant manufacturers will be returned.
+#'
+#' @return
+#' List containing elements:
+#' \itemize{
+#'   \item \code{series}: Data frame with columns representing the contents of a Series object
+#'   as described in \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API Return Values}
+#'   \item \code{content}: parsed API response content
+#'   \item \code{response}: API response
+#' }
+#'
+#' @examples
+#' get_series()
+#' get_series(collection = "TCGA-BRCA")
+#' get_series(patient_id = "TCGA-OL-A6VO")
+#' get_series(modality = "MR", manufacturer = "GE MEDICAL SYSTEMS")
+#'
+#' @export
+get_series <- function(collection = NULL,
+                       patient_id = NULL,
+                       study_instance_uid = NULL,
+                       series_instance_uid = NULL,
+                       modality = NULL,
+                       body_part_examined = NULL,
+                       manufacturer_model_name = NULL,
+                       manufacturer = NULL) {
+  endpoint <- "/query/getSeries"
+  response <- get_response(endpoint, query = list(format = "json", api_key = get_api_key(),
+                                                  Collection = collection,
+                                                  StudyInstanceUID = study_instance_uid,
+                                                  PatientID = patient_id,
+                                                  SeriesInstanceUID = series_instance_uid,
+                                                  Modality = modality,
+                                                  BodyPartExamined = body_part_examined,
+                                                  ManufacturerModelName = manufacturer_model_name,
+                                                  Manufacturer = manufacturer))
+  parsed <- process_json_response(response)
+  if(length(parsed) == 0) warning(paste(c("get_series returned zero results for collection ",
+                                          collection, ", study instance UID ", study_instance_uid,
+                                          ", patient ID ", patient_id, ", series instance UID ",
+                                          series_instance_uid, ", modality ", modality,
+                                          ", body part ", body_part_examined, ", manufacturer model name ",
+                                          manufacturer_model_name, ", manufacturer ", manufacturer),
+                                        collapse = ''))
+  structure(list(
+    series = get_series_objects(parsed),
+    content = parsed,
+    response = response
+  ), class = "tcia_api")
+}
 
 
 

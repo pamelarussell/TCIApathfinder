@@ -98,7 +98,24 @@ get_patient_study_objects <- function(parsed_response) {
              series_count = get_vals(parsed_response, "SeriesCount"))
 }
 
-
+# Get Series objects from a parsed API response
+get_series_objects <- function(parsed_response) {
+  data.frame(patient_id = get_vals(parsed_response, "PatientID"),
+             collection = get_vals(parsed_response, "Collection"),
+             study_instance_uid = get_vals(parsed_response, "StudyInstanceUID"),
+             series_instance_uid = get_vals(parsed_response, "SeriesInstanceUID"),
+             modality = get_vals(parsed_response, "Modality"),
+             protocol_name = get_vals(parsed_response, "ProtocolName"),
+             series_date = get_vals(parsed_response, "SeriesDate"),
+             series_description = get_vals(parsed_response, "SeriesDescription"),
+             body_part_examined = get_vals(parsed_response, "BodyPartExamined"),
+             series_number = get_vals(parsed_response, "SeriesNumber"),
+             annotations_flag = get_vals(parsed_response, "AnnotationsFlag"),
+             manufacturer = get_vals(parsed_response, "Manufacturer"),
+             manufacturer_model_name = get_vals(parsed_response, "ManufacturerModelName"),
+             software_versions = get_vals(parsed_response, "SoftwareVersions"),
+             image_count = get_vals(parsed_response, "ImageCount"))
+}
 
 
 
