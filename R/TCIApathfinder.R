@@ -317,3 +317,61 @@ get_studies_in_collection <- function(collection, patient_id = NULL) {
   get_new_studies_in_collection(collection = collection, date = "0001-01-01", patient_id = patient_id)
 }
 
+#' Get patient study information
+#'
+#' @param collection TCIA collection name. To get a list of available collection
+#' names, call \code{get_collection_names()}. If \code{collection} is \code{NULL}, information
+#' for all relevant collections will be returned.
+#'
+#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patients()}.
+#' If \code{patient_id} is \code{NULL}, information for all relevant patients will be returned.
+#'
+#' @param study_instance_uid Study instance UID. If \code{study_instance_uid} is \code{NULL}, information
+#' for all relevant study instance UIDs will be returned.
+#'
+#' @return
+#' List containing elements:
+#' \itemize{
+#'   \item \code{patient_studies}: Data frame with columns representing the contents of a PatientStudy object
+#'   as described in \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API Return Values}
+#'   \item \code{content}: parsed API response content
+#'   \item \code{response}: API response
+#' }
+#'
+#' @examples
+#' get_patient_studies()
+#' get_patient_studies(collection = "TCGA-BRCA")
+#' get_patient_studies(patient_id = "TCGA-OL-A6VO")
+#' get_patient_studies(patient_id = "TCGA-OL-A5DA", study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
+#'
+#' @export
+get_patient_studies <- function(collection = NULL, patient_id = NULL, study_instance_uid = NULL) {
+  endpoint <- "/query/getPatientStudy"
+  response <- get_response(endpoint, query = list(format = "json", api_key = get_api_key(),
+                                                  Collection = collection, PatientID = patient_id,
+                                                  StudyInstanceUID = study_instance_uid))
+  parsed <- process_json_response(response)
+  if(length(parsed) == 0) warning(paste("get_patient_studies returned zero results for collection ",
+                                        collection, ", patient ID ", patient_id, ", and study instance UID ",
+                                        study_instance_uid, sep = ""))
+  structure(list(
+    patient_studies = get_patient_study_objects(parsed),
+    content = parsed,
+    response = response
+  ), class = "tcia_api")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

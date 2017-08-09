@@ -1,3 +1,4 @@
+message("\nTesting handling of invalid JSON")
 
 test_that("Error for invalid JSON", {
   response <- get_response("/query/getCollectionValues",

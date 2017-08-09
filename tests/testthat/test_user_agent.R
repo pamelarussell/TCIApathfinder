@@ -1,3 +1,4 @@
+message("\nTesting API user agent")
 
 test_that("User agent is GitHub repo", {
   response <- get_response("/query/getCollectionValues",

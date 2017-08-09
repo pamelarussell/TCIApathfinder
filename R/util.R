@@ -66,18 +66,36 @@ get_or_else <- function(list, key, na_val = NA) {
   else na_val
 }
 
+# Get vector of values for a key from a parsed API response
+get_vals <- function(parsed_response, key) {
+  unlist(sapply(parsed_response, function(x) get_or_else(x, key)))
+}
+
 # Get Patient objects from a parsed API response
 get_patient_objects <- function(parsed_response) {
-  patient_ids <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientID")))
-  patient_name <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientName")))
-  patient_sex <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientSex")))
-  patient_ethnic_group <- unlist(sapply(parsed_response, function(x) get_or_else(x, "EthnicGroup")))
-  collection <- unlist(sapply(parsed_response, function(x) get_or_else(x, "Collection")))
-  data.frame(patient_id = patient_ids,
-             patient_name = patient_name,
-             patient_sex = patient_sex,
-             patient_ethnic_group = patient_ethnic_group,
-             collection = collection)
+  data.frame(patient_id = get_vals(parsed_response, "PatientID"),
+             patient_name = get_vals(parsed_response, "PatientName"),
+             patient_dob = get_vals(parsed_response, "PatientBirthDate"),
+             patient_sex = get_vals(parsed_response, "PatientSex"),
+             patient_ethnic_group = get_vals(parsed_response, "EthnicGroup"),
+             collection = get_vals(parsed_response, "Collection"))
+}
+
+# Get Patient/Study objects from a parsed API response
+get_patient_study_objects <- function(parsed_response) {
+  data.frame(patient_id = get_vals(parsed_response, "PatientID"),
+             patient_name = get_vals(parsed_response, "PatientName"),
+             patient_dob = get_vals(parsed_response, "PatientBirthDate"),
+             patient_age = get_vals(parsed_response, "PatientAge"),
+             patient_sex = get_vals(parsed_response, "PatientSex"),
+             patient_ethnic_group = get_vals(parsed_response, "EthnicGroup"),
+             admitting_diagnoses_description = get_vals(parsed_response, "AdmittingDiagnosesDescription"),
+             collection = get_vals(parsed_response, "Collection"),
+             study_id = get_vals(parsed_response, "StudyID"),
+             study_instance_uid = get_vals(parsed_response, "StudyInstanceUID"),
+             study_date = get_vals(parsed_response, "StudyDate"),
+             study_description = get_vals(parsed_response, "StudyDescription"),
+             series_count = get_vals(parsed_response, "SeriesCount"))
 }
 
 

@@ -1,3 +1,5 @@
+message("\nTesting get_body_part_names")
+
 bp_names_all <- get_body_part_names()
 bp_names_tcga <- get_body_part_names(collection = "TCGA-BRCA")
 bp_names_mr <- get_body_part_names(modality = "MR")

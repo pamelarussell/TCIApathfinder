@@ -1,3 +1,4 @@
+message("\nTesting handling of HTTP errors")
 
 test_that("Error for invalid endpoint", {
   response <- get_response("/fakeEndpoint", query = list(format = "json", api_key = get_api_key()))

@@ -1,3 +1,4 @@
+message("\nTesting get_modality_names")
 
 test_that("Structure of modalities value", {
   mod <- get_modality_names()

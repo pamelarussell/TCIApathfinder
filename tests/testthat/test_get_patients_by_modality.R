@@ -1,3 +1,4 @@
+message("\nTesting get_patients_by_modality")
 
 patients_tcga_mr <- get_patients_by_modality(collection = "TCGA-BRCA", modality = "MR")
 

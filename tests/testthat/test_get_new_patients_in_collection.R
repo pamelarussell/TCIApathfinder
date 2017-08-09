@@ -1,3 +1,4 @@
+message("\nTesting get_new_patients_in_collection")
 
 test_that("Structure of new patients by collection", {
   pat <- get_new_patients_in_collection("TCGA-BRCA", "2014-01-01")

@@ -1,3 +1,5 @@
+message("\nTesting get_patients")
+
 suppressPackageStartupMessages(library(dplyr))
 
 patients_all <- get_patients()
@@ -5,7 +7,7 @@ patients_tcga <- get_patients("TCGA-BRCA")
 
 test_that("Structure of patients value", {
   expect_equal(length(patients_tcga), 3)
-  expect_equal(ncol(patients_tcga$patients), 5)
+  expect_equal(ncol(patients_tcga$patients), 6)
   expect_true(nrow(patients_tcga$patients) > 50)
   expect_true(length(patients_tcga$content) > 50)
   expect_equal(class(patients_tcga$response), "response")
@@ -30,6 +32,7 @@ test_that("Individual BRCA patient", {
   expect_identical(pid, as.character(one_patient[1, "patient_name"]))
   expect_identical("F", as.character(one_patient[1, "patient_sex"]))
   expect_identical("TCGA-BRCA", as.character(one_patient[1, "collection"]))
+  expect_equal(NA, one_patient[1, "patient_dob"])
   expect_equal(NA, one_patient[1, "patient_ethnic_group"])
 })
 

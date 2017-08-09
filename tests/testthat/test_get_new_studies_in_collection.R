@@ -1,3 +1,4 @@
+message("\nTesting get_new_studies_in_collection")
 
 test_that("Structure of new studies by collection", {
   studies <- get_new_studies_in_collection("TCGA-BRCA", "2014-01-01")

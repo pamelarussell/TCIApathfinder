@@ -1,3 +1,5 @@
+message("\nTesting get_manufacturer_names")
+
 manufacturers_all <- get_manufacturer_names()
 manufacturers_tcga <- get_manufacturer_names(collection = "TCGA-BRCA")
 manufacturers_breast <- get_manufacturer_names(body_part = "BREAST")

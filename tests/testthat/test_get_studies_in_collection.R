@@ -1,3 +1,4 @@
+message("\nTesting get_studies_in_collection")
 
 test_that("Structure of studies by collection", {
   studies <- get_studies_in_collection("TCGA-BRCA")

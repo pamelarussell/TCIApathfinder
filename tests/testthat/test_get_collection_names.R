@@ -1,3 +1,5 @@
+message("\nTesting get_collection_names")
+
 collections <- get_collection_names()
 
 test_that("Structure of collection names value", {
