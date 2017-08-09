@@ -25,7 +25,7 @@ get_collection_names <- function() {
   ), class = "tcia_api")
 }
 
-#' Get patient IDs
+#' Get patient information
 #'
 #' @param collection TCIA collection name. If \code{collection} is \code{NULL},
 #' patients from all collections will be returned. To get a list of available collection
@@ -34,24 +34,23 @@ get_collection_names <- function() {
 #' @return
 #' List containing elements:
 #' \itemize{
-#'   \item \code{patient_ids}: character vector of patient IDs
+#'   \item \code{patients}: Data frame of patient ID, name, sex, ethnic group, and collection name
 #'   \item \code{content}: parsed API response content
 #'   \item \code{response}: API response
 #' }
 #'
 #' @examples
-#' get_patient_ids()
-#' get_patient_ids("TCGA-BRCA")
+#' get_patients()
+#' get_patients("TCGA-BRCA")
 #'
 #' @export
-get_patient_ids <- function(collection = NULL) {
+get_patients <- function(collection = NULL) {
   endpoint <- "/query/getPatient"
   response <- get_response(endpoint, query = list(format = "json", api_key = get_api_key(), Collection = collection))
   parsed <- process_json_response(response)
   if(length(parsed) == 0) warning(paste( "get_patients returned zero results for collection", collection))
-  patient_ids <- sort(unlist(sapply(parsed, function(x) x$PatientID)))
   structure(list(
-    patient_ids = patient_ids,
+    patients = get_patient_objects(parsed),
     content = parsed,
     response = response
   ), class = "tcia_api")
@@ -243,7 +242,7 @@ get_new_patients_in_collection <- function(collection, date) {
   parsed <- process_json_response(response)
   if(length(parsed) == 0) warning(paste("get_new_patients_in_collection returned zero results for collection",
                                         collection, "and date", date))
-  patient_ids <- sort(unlist(sapply(parsed, function(x) x$PatientID)))
+  patient_ids <- unlist(sapply(parsed, function(x) x$PatientID))
   structure(list(
     patient_ids = patient_ids,
     content = parsed,
@@ -258,7 +257,7 @@ get_new_patients_in_collection <- function(collection, date) {
 #'
 #' @param date Date in format YYYY-MM-DD
 #'
-#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patient_ids()}.
+#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patients()}.
 #'
 #' @return
 #' List containing elements:
@@ -299,7 +298,7 @@ get_new_studies_in_collection <- function(collection, date, patient_id = NULL) {
 #' @param collection TCIA collection name. To get a list of available collection
 #' names, call \code{get_collection_names()}.
 #'
-#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patient_ids()}.
+#' @param patient_id Patient ID. To get a list of available patient IDs, call \code{get_patients()}.
 #'
 #' @return
 #' List containing elements:

@@ -60,3 +60,27 @@ validate_date <- function(date) {
   }
 }
 
+# Get a list element if it exists, or an alternative value otherwise
+get_or_else <- function(list, key, na_val = NA) {
+  if(key %in% names(list)) list[[key]]
+  else na_val
+}
+
+# Get Patient objects from a parsed API response
+get_patient_objects <- function(parsed_response) {
+  patient_ids <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientID")))
+  patient_name <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientName")))
+  patient_sex <- unlist(sapply(parsed_response, function(x) get_or_else(x, "PatientSex")))
+  patient_ethnic_group <- unlist(sapply(parsed_response, function(x) get_or_else(x, "EthnicGroup")))
+  collection <- unlist(sapply(parsed_response, function(x) get_or_else(x, "Collection")))
+  data.frame(patient_id = patient_ids,
+             patient_name = patient_name,
+             patient_sex = patient_sex,
+             patient_ethnic_group = patient_ethnic_group,
+             collection = collection)
+}
+
+
+
+
+
