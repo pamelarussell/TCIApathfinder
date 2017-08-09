@@ -442,8 +442,45 @@ get_series <- function(collection = NULL,
   ), class = "tcia_api")
 }
 
-
-
+#' Get size of image series
+#'
+#' @param series_instance_uid Series instance UID. To get a list of available series instance UIDs, call \code{get_series()}.
+#'
+#' @return
+#' List containing elements:
+#' \itemize{
+#'   \item \code{size_bytes}: Total size of image series in bytes
+#'   \item \code{object_count}: Number of objects in image series
+#'   \item \code{content}: parsed API response content
+#'   \item \code{response}: API response
+#' }
+#'
+#' @examples
+#' get_series_size("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
+#'
+#' @export
+get_series_size <- function(series_instance_uid) {
+  endpoint <- "/query/getSeriesSize"
+  response <- get_response(endpoint, query = list(format = "json", api_key = get_api_key(), SeriesInstanceUID = series_instance_uid))
+  parsed <- process_json_response(response)
+  if(length(parsed) != 1) stop("Length of response list should be 1")
+  data <- parsed[[1]]
+  if(length(data$TotalSizeInBytes) == 0) {
+    warning(paste("get_series_size returned no results for series instance UID", series_instance_uid))
+    structure(list(
+      size_bytes = NA,
+      object_count = NA,
+      content = parsed,
+      response = response
+    ), class = "tcia_api")
+  }
+  else structure(list(
+    size_bytes = as.integer(data$TotalSizeInBytes),
+    object_count = as.integer(data$ObjectCount),
+    content = parsed,
+    response = response
+  ), class = "tcia_api")
+}
 
 
 
