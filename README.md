@@ -69,7 +69,7 @@ head(body_parts$body_parts)
 
 Note: a collection or modality can be specified to narrow down results.
 
-### Get information for all patients in collection TCGA-BRCA
+### Get information for all patients in a collection
 
 ``` r
 patients_tcga_brca <- get_patient_info(collection = "TCGA-BRCA")
@@ -151,7 +151,7 @@ Note: other ways to narrow down results include
 -   manufacturer
 -   manufacturer model name
 
-### Get detailed information on all imaging studies for patient TCGA-AR-A1AQ
+### Get detailed information on all imaging studies for a patient
 
 ``` r
 studies <- get_patient_studies(patient_id = "TCGA-AR-A1AQ")
