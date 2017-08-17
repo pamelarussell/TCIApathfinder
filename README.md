@@ -2,7 +2,7 @@
 TCIApathfinder
 ==============
 
-TCIApathfinder is a wrapper for The Cancer Imaging Archive's REST API v3. The Cancer Imaging Archive (TCIA) hosts de-identified medical images of cancer available for public download, as well as rich metadata for each image series. TCIA provides a REST API for programmatic access to the data. This package provides simple functions to access each API endpoint. For more information about TCIA, see TCIA's website.
+TCIApathfinder is a wrapper for The Cancer Imaging Archive's REST API v3. The Cancer Imaging Archive (TCIA) hosts de-identified medical images of cancer available for public download, as well as rich metadata for each image series. TCIA provides a REST API for programmatic access to the data. This package provides simple functions to access each API endpoint. For more information about TCIA, see TCIA's [website](http://www.cancerimagingarchive.net/).
 
 Installation
 ------------
