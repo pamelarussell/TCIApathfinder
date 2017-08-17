@@ -8,11 +8,12 @@ get_new_studies_in_collection(collection, date, patient_id = NULL)
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection
-names, call \code{get_collection_names()}.}
+names, call \code{\link{get_collection_names}}.}
 
-\item{date}{Date in format YYYY-MM-DD}
+\item{date}{Date in format "YYYY-MM-DD"}
 
-\item{patient_id}{Patient ID. To get a list of available patient IDs, call \code{get_patients()}.}
+\item{patient_id}{Patient ID. To get a list of available patient IDs, call \code{\link{get_patient_info}}.
+If \code{patient_id} is \code{NULL}, relevant studies for all patients in the collection will be returned.}
 }
 \value{
 List containing elements:
@@ -29,4 +30,10 @@ Get studies that have been added to a collection and optionally to a patient sin
 get_new_studies_in_collection("TCGA-BRCA", "2014-01-01")
 get_new_studies_in_collection("TCGA-BRCA", "2014-01-01", "TCGA-OL-A66O")
 
+}
+\seealso{
+\code{\link{get_collection_names}},
+\code{\link{get_patient_info}},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 }

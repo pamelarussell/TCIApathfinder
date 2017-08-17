@@ -7,7 +7,7 @@
 get_series_size(series_instance_uid)
 }
 \arguments{
-\item{series_instance_uid}{Series instance UID. To get a list of available series instance UIDs, call \code{get_series()}.}
+\item{series_instance_uid}{Series instance UID. To get a list of available series instance UIDs, call \code{\link{get_series_info}}.}
 }
 \value{
 List containing elements:
@@ -24,4 +24,9 @@ Get size of image series
 \examples{
 get_series_size("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
 
+}
+\seealso{
+\code{\link{get_series_info}},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 }

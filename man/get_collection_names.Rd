@@ -21,3 +21,7 @@ Get the names of all TCIA collections
 get_collection_names()
 
 }
+\seealso{
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
+}

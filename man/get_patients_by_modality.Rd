@@ -8,10 +8,10 @@ get_patients_by_modality(collection, modality)
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection
-names, call \code{get_collection_names()}.}
+names, call \code{\link{get_collection_names}}.}
 
 \item{modality}{Modality name. To get a list of available modality names, call
-\code{get_modality_names()}.}
+\code{\link{get_modality_names}} or see \href{https://wiki.cancerimagingarchive.net/display/Public/DICOM+Modality+Abbreviations}{DICOM Modality Abbreviations}.}
 }
 \value{
 List containing elements:
@@ -27,4 +27,11 @@ Get patient IDs given a collection name and modality
 \examples{
 get_patients_by_modality("TCGA-BRCA", "MR")
 
+}
+\seealso{
+\code{\link{get_collection_names}},
+\code{\link{get_modality_names}},
+\href{https://wiki.cancerimagingarchive.net/display/Public/DICOM+Modality+Abbreviations}{DICOM Modality Abbreviations},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 }

@@ -1,15 +1,15 @@
-message("\nTesting get_series")
+message("\nTesting get_series_info")
 
-series_all <- get_series()
-series_coll <- get_series(collection = "TCGA-BRCA")
-series_pat <- get_series(patient_id = "TCGA-OL-A5DA")
-series_study_uid <- get_series(study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
-series_series_id <- get_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
-series_modality <- get_series(modality = "MR")
-series_body_part <- get_series(body_part = "BREAST")
-series_model <- get_series(manufacturer_model_name = "Symphony")
-series_manufacturer <- get_series(manufacturer = "SIEMENS")
-series_pat_series_id <- get_series(patient_id = "TCGA-OL-A5DA", series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+series_all <- get_series_info()
+series_coll <- get_series_info(collection = "TCGA-BRCA")
+series_pat <- get_series_info(patient_id = "TCGA-OL-A5DA")
+series_study_uid <- get_series_info(study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
+series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+series_modality <- get_series_info(modality = "MR")
+series_body_part <- get_series_info(body_part = "BREAST")
+series_model <- get_series_info(manufacturer_model_name = "Symphony")
+series_manufacturer <- get_series_info(manufacturer = "SIEMENS")
+series_pat_series_id <- get_series_info(patient_id = "TCGA-OL-A5DA", series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
 
 test_that("Relative response sizes", {
   expect_true(nrow(series_pat$series) > nrow(series_series_id$series))
@@ -70,50 +70,50 @@ test_that("Particular series", {
 })
 
 test_that("Invalid collection", {
-  expect_warning(s <- get_series(collection = "fake collection"))
-  suppressWarnings(s <- get_series(collection = "fake collection"))
+  expect_warning(s <- get_series_info(collection = "fake collection"))
+  suppressWarnings(s <- get_series_info(collection = "fake collection"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid patient ID", {
-  expect_warning(s <- get_series(patient_id = "fake id"))
-  suppressWarnings(s <- get_series(patient_id = "fake id"))
+  expect_warning(s <- get_series_info(patient_id = "fake id"))
+  suppressWarnings(s <- get_series_info(patient_id = "fake id"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid study instance UID", {
-  expect_warning(s <- get_series(study_instance_uid = "fake id"))
-  suppressWarnings(s <- get_series(study_instance_uid = "fake id"))
+  expect_warning(s <- get_series_info(study_instance_uid = "fake id"))
+  suppressWarnings(s <- get_series_info(study_instance_uid = "fake id"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid series instance UID", {
-  expect_warning(s <- get_series(series_instance_uid = "fake id"))
-  suppressWarnings(s <- get_series(series_instance_uid = "fake id"))
+  expect_warning(s <- get_series_info(series_instance_uid = "fake id"))
+  suppressWarnings(s <- get_series_info(series_instance_uid = "fake id"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid modality", {
-  expect_warning(s <- get_series(modality = "fake modality"))
-  suppressWarnings(s <- get_series(modality = "fake modality"))
+  expect_warning(s <- get_series_info(modality = "fake modality"))
+  suppressWarnings(s <- get_series_info(modality = "fake modality"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid body part", {
-  expect_warning(s <- get_series(body_part_examined = "fake body part"))
-  suppressWarnings(s <- get_series(body_part_examined = "fake body part"))
+  expect_warning(s <- get_series_info(body_part_examined = "fake body part"))
+  suppressWarnings(s <- get_series_info(body_part_examined = "fake body part"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid manufacturer model name", {
-  expect_warning(s <- get_series(manufacturer_model_name = "fake model name"))
-  suppressWarnings(s <- get_series(manufacturer_model_name = "fake model name"))
+  expect_warning(s <- get_series_info(manufacturer_model_name = "fake model name"))
+  suppressWarnings(s <- get_series_info(manufacturer_model_name = "fake model name"))
   expect_equal(length(s$content), 0)
 })
 
 test_that("Invalid manufacturer", {
-  expect_warning(s <- get_series(manufacturer = "fake manufacturer"))
-  suppressWarnings(s <- get_series(manufacturer = "fake manufacturer"))
+  expect_warning(s <- get_series_info(manufacturer = "fake manufacturer"))
+  suppressWarnings(s <- get_series_info(manufacturer = "fake manufacturer"))
   expect_equal(length(s$content), 0)
 })
 

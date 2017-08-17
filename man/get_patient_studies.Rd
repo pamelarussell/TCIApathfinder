@@ -9,14 +9,15 @@ get_patient_studies(collection = NULL, patient_id = NULL,
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection
-names, call \code{get_collection_names()}. If \code{collection} is \code{NULL}, information
+names, call \code{\link{get_collection_names}}. If \code{collection} is \code{NULL}, information
 for all relevant collections will be returned.}
 
-\item{patient_id}{Patient ID. To get a list of available patient IDs, call \code{get_patients()}.
+\item{patient_id}{Patient ID. To get a list of available patient IDs, call \code{\link{get_patient_info}}.
 If \code{patient_id} is \code{NULL}, information for all relevant patients will be returned.}
 
 \item{study_instance_uid}{Study instance UID. If \code{study_instance_uid} is \code{NULL}, information
-for all relevant study instance UIDs will be returned.}
+for all relevant study instance UIDs will be returned. To get available study instance UIDs, call \code{\link{get_studies_in_collection}},
+\code{\link{get_patient_studies}}, or \code{\link{get_new_studies_in_collection}}.}
 }
 \value{
 List containing elements:
@@ -34,6 +35,16 @@ Get patient study information
 get_patient_studies()
 get_patient_studies(collection = "TCGA-BRCA")
 get_patient_studies(patient_id = "TCGA-OL-A6VO")
-get_patient_studies(patient_id = "TCGA-OL-A5DA", study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
+get_patient_studies(patient_id = "TCGA-OL-A5DA",
+     study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
 
+}
+\seealso{
+\code{\link{get_collection_names}},
+\code{\link{get_patient_info}},
+\code{\link{get_studies_in_collection}},
+\code{\link{get_patient_studies}},
+\code{\link{get_new_studies_in_collection}},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 }

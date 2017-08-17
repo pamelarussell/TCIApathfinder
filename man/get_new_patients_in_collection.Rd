@@ -8,9 +8,9 @@ get_new_patients_in_collection(collection, date)
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection
-names, call \code{get_collection_names()}.}
+names, call \code{\link{get_collection_names}}.}
 
-\item{date}{Date in format YYYY-MM-DD}
+\item{date}{Date in format "YYYY-MM-DD"}
 }
 \value{
 List containing elements:
@@ -26,4 +26,9 @@ Get IDs of patients that have been added to a collection since a specified date
 \examples{
 get_new_patients_in_collection("TCGA-BRCA", "2014-01-01")
 
+}
+\seealso{
+\code{\link{get_collection_names}},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
+\href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 }
