@@ -24,7 +24,9 @@ List containing elements:
 Get IDs of patients that have been added to a collection since a specified date
 }
 \examples{
+\donttest{
 get_new_patients_in_collection("TCGA-BRCA", "2014-01-01")
+}
 
 }
 \seealso{

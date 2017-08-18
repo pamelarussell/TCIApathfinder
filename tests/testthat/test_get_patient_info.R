@@ -1,9 +1,12 @@
 message("\nTesting get_patient_info")
 
-patients_all <- get_patient_info()
-patients_tcga <- get_patient_info("TCGA-BRCA")
+if (identical(Sys.getenv("NOT_CRAN"), "true")) {
+  patients_all <- get_patient_info()
+  patients_tcga <- get_patient_info("TCGA-BRCA")
+}
 
 test_that("Structure of patients value", {
+  skip_on_cran()
   expect_equal(length(patients_tcga), 3)
   expect_equal(ncol(patients_tcga$patients), 6)
   expect_true(nrow(patients_tcga$patients) > 50)
@@ -12,6 +15,7 @@ test_that("Structure of patients value", {
 })
 
 test_that("Number of all patients", {
+  skip_on_cran()
   expect_true(nrow(patients_all$patients) > 5000)
   expect_true("TCGA-OL-A6VO" %in% patients_all$patients$patient_id)
   expect_true("TCGA-OL-A6VO" %in% patients_all$patients$patient_name)
@@ -20,11 +24,13 @@ test_that("Number of all patients", {
 })
 
 test_that("Number of BRCA patients", {
+  skip_on_cran()
   expect_true(nrow(patients_tcga$patients) > 50)
   expect_true("TCGA-OL-A6VO" %in% patients_tcga$patients$patient_id)
 })
 
 test_that("Individual BRCA patient", {
+  skip_on_cran()
   pid <- "TCGA-OL-A6VO"
   one_patient <- patients_all$patients[which(patients_all$patients$patient_id == pid), ]
   expect_identical(pid, as.character(one_patient[1, "patient_name"]))
@@ -35,6 +41,7 @@ test_that("Individual BRCA patient", {
 })
 
 test_that("Invalid collection name", {
+  skip_on_cran()
   expect_warning(patients <- get_patient_info("fake collection"))
   suppressWarnings(patients <- get_patient_info("fake collection"))
   expect_equal(length(patients$content), 0)

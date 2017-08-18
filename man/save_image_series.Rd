@@ -25,12 +25,14 @@ List containing elements:
 Save a series of DICOM image files as a zip file
 }
 \examples{
+\donttest{
 save_image_series(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
      out_dir = "~/Desktop")
 save_image_series(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
      out_dir = "~/Desktop", out_file_name = "file.zip")
+}
 
 }
 \seealso{

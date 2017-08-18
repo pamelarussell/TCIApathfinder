@@ -1,6 +1,7 @@
 message("\nTesting handling of invalid JSON")
 
 test_that("Error for invalid JSON", {
+  skip_on_cran()
   response <- get_response("/query/getCollectionValues",
                            query = list(format = "html",
                                         api_key = get_api_key()))

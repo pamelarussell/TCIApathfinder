@@ -18,7 +18,9 @@ List containing elements:
 Get the names of all TCIA collections
 }
 \examples{
+\donttest{
 get_collection_names()
+}
 
 }
 \seealso{

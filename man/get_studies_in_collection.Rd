@@ -25,8 +25,10 @@ List containing elements:
 Get studies in a collection and optionally for a specific patient
 }
 \examples{
+\donttest{
 get_studies_in_collection("TCGA-BRCA")
 get_studies_in_collection("TCGA-BRCA", "TCGA-OL-A66O")
+}
 
 }
 \seealso{

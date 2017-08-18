@@ -25,7 +25,9 @@ List containing elements:
 Get patient IDs given a collection name and modality
 }
 \examples{
+\donttest{
 get_patients_by_modality("TCGA-BRCA", "MR")
+}
 
 }
 \seealso{

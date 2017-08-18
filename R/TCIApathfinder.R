@@ -10,7 +10,9 @@
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_collection_names()
+#' }
 #'
 #' @seealso \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
@@ -43,8 +45,10 @@ get_collection_names <- function() {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_patient_info()
 #' get_patient_info("TCGA-BRCA")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
@@ -83,10 +87,12 @@ get_patient_info <- function(collection = NULL) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_body_part_names()
 #' get_body_part_names(collection = "TCGA-BRCA")
 #' get_body_part_names(modality = "MR")
 #' get_body_part_names(collection = "TCGA-BRCA", modality = "MR")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_modality_names}},
@@ -129,10 +135,12 @@ get_body_part_names <- function(collection = NULL, modality = NULL) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_modality_names()
 #' get_modality_names(collection = "TCGA-BRCA")
 #' get_modality_names(body_part = "BREAST")
 #' get_modality_names(collection = "TCGA-BRCA", body_part = "BREAST")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_body_part_names}},
@@ -178,9 +186,11 @@ get_modality_names <- function(collection = NULL, body_part = NULL) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_manufacturer_names()
 #' get_manufacturer_names(collection = "TCGA-BRCA")
 #' get_manufacturer_names(collection = "TCGA-BRCA", modality = "MR", body_part = "BREAST")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_modality_names}},
@@ -223,7 +233,9 @@ get_manufacturer_names <- function(collection = NULL, modality = NULL, body_part
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_patients_by_modality("TCGA-BRCA", "MR")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_modality_names}},
@@ -263,7 +275,9 @@ get_patients_by_modality <- function(collection, modality) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_new_patients_in_collection("TCGA-BRCA", "2014-01-01")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
@@ -305,8 +319,10 @@ get_new_patients_in_collection <- function(collection, date) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_new_studies_in_collection("TCGA-BRCA", "2014-01-01")
 #' get_new_studies_in_collection("TCGA-BRCA", "2014-01-01", "TCGA-OL-A66O")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_patient_info}},
@@ -352,8 +368,10 @@ get_new_studies_in_collection <- function(collection, date, patient_id = NULL) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_studies_in_collection("TCGA-BRCA")
 #' get_studies_in_collection("TCGA-BRCA", "TCGA-OL-A66O")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_patient_info}},
@@ -388,11 +406,13 @@ get_studies_in_collection <- function(collection, patient_id = NULL) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_patient_studies()
 #' get_patient_studies(collection = "TCGA-BRCA")
 #' get_patient_studies(patient_id = "TCGA-OL-A6VO")
 #' get_patient_studies(patient_id = "TCGA-OL-A5DA",
 #'      study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_patient_info}},
@@ -463,10 +483,12 @@ get_patient_studies <- function(collection = NULL, patient_id = NULL, study_inst
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_series_info()
 #' get_series_info(collection = "TCGA-BRCA")
 #' get_series_info(patient_id = "TCGA-OL-A6VO")
 #' get_series_info(modality = "MR", manufacturer = "GE MEDICAL SYSTEMS")
+#' }
 #'
 #' @seealso \code{\link{get_collection_names}},
 #' \code{\link{get_patient_info}},
@@ -527,7 +549,9 @@ get_series_info <- function(collection = NULL,
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_series_size("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
+#' }
 #'
 #' @seealso \code{\link{get_series_info}},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
@@ -570,7 +594,9 @@ get_series_size <- function(series_instance_uid) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' get_sop_instance_uids("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
+#' }
 #'
 #' @seealso \code{\link{get_series_info}},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},
@@ -606,6 +632,7 @@ get_sop_instance_uids <- function(series_instance_uid) {
 #' }
 #'
 #' @examples
+#' \donttest{
 #' save_single_image(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
@@ -614,6 +641,7 @@ get_sop_instance_uids <- function(series_instance_uid) {
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
 #'      out_dir = "~/Desktop", out_file_name = "file.dcm")
+#' }
 #'
 #' @seealso \code{\link{get_series_info}},
 #' \code{\link{get_sop_instance_uids}},
@@ -666,12 +694,14 @@ save_single_image <- function(series_instance_uid, sop_instance_uid, out_dir, ou
 #' }
 #'
 #' @examples
+#' \donttest{
 #' save_image_series(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      out_dir = "~/Desktop")
 #' save_image_series(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      out_dir = "~/Desktop", out_file_name = "file.zip")
+#' }
 #'
 #' @seealso \code{\link{get_series_info}},
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+\%28REST+API\%29+Usage+Guide}{TCIA REST API Usage Guide},

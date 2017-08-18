@@ -1,6 +1,7 @@
 message("\nTesting get_studies_in_collection")
 
 test_that("Structure of studies by collection", {
+  skip_on_cran()
   studies <- get_studies_in_collection("TCGA-BRCA")
   expect_equal(length(studies), 3)
   expect_true(nrow(studies$studies) > 10)
@@ -14,12 +15,14 @@ test_that("Structure of studies by collection", {
 })
 
 test_that("Invalid collection name", {
+  skip_on_cran()
   expect_warning(studies <- get_studies_in_collection(collection = "fake_collection"))
   suppressWarnings(studies <- get_studies_in_collection(collection = "fake_collection"))
   expect_equal(nrow(studies$studies), 0)
 })
 
 test_that("Invalid patient ID", {
+  skip_on_cran()
   expect_warning(studies <- get_studies_in_collection(collection = "TCGA-BRCA", patient_id = "fake_patient"))
   suppressWarnings(studies <- get_studies_in_collection(collection = "TCGA-BRCA", patient_id = "fake_patient"))
   expect_equal(nrow(studies$studies), 0)

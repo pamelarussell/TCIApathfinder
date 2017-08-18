@@ -22,7 +22,9 @@ List containing elements:
 Get size of image series
 }
 \examples{
+\donttest{
 get_series_size("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
+}
 
 }
 \seealso{

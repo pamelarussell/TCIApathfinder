@@ -27,10 +27,12 @@ List containing elements:
 Get modality names
 }
 \examples{
+\donttest{
 get_modality_names()
 get_modality_names(collection = "TCGA-BRCA")
 get_modality_names(body_part = "BREAST")
 get_modality_names(collection = "TCGA-BRCA", body_part = "BREAST")
+}
 
 }
 \seealso{

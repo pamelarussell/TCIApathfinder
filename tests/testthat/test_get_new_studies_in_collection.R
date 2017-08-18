@@ -1,6 +1,7 @@
 message("\nTesting get_new_studies_in_collection")
 
 test_that("Structure of new studies by collection", {
+  skip_on_cran()
   studies <- get_new_studies_in_collection("TCGA-BRCA", "2014-01-01")
   expect_equal(length(studies), 3)
   expect_true(nrow(studies$studies) > 10)
@@ -14,24 +15,28 @@ test_that("Structure of new studies by collection", {
 })
 
 test_that("No new studies since date", {
+  skip_on_cran()
   expect_warning(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "9999-01-01"))
   suppressWarnings(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "9999-01-01"))
   expect_equal(nrow(studies$studies), 0)
 })
 
 test_that("Invalid collection name", {
+  skip_on_cran()
   expect_warning(studies <- get_new_studies_in_collection(collection = "fake_collection", date = "2011-01-01"))
   suppressWarnings(studies <- get_new_studies_in_collection(collection = "fake_collection", date = "2011-01-01"))
   expect_equal(nrow(studies$studies), 0)
 })
 
 test_that("Invalid patient ID", {
+  skip_on_cran()
   expect_warning(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "2011-01-01", patient_id = "fake_patient"))
   suppressWarnings(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "2011-01-01", patient_id = "fake_patient"))
   expect_equal(nrow(studies$studies), 0)
 })
 
 test_that("Invalid date", {
+  skip_on_cran()
   expect_error(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "01-01-14"))
   expect_error(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "01-01-2014"))
   expect_error(studies <- get_new_studies_in_collection(collection = "TCGA-BRCA", date = "January 1, 2014"))

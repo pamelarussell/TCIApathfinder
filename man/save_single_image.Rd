@@ -27,6 +27,7 @@ List containing elements:
 Save a single DICOM image file
 }
 \examples{
+\donttest{
 save_single_image(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
@@ -35,6 +36,7 @@ save_single_image(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
      out_dir = "~/Desktop", out_file_name = "file.dcm")
+}
 
 }
 \seealso{
