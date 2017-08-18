@@ -1,19 +1,19 @@
 message("\nTesting save_image_series")
 
 setup <- function() {
-  file1 <- "file.zip"
-  file2 <- "bindaas-blob-download.zip"
+  file1 <<- "file.zip"
+  file2 <<- "bindaas-blob-download.zip"
   dir <- "~/Desktop"
-  path1 <- paste(dir, file1, sep="/")
-  path2 <- paste(dir, file2, sep="/")
+  path1 <<- paste(dir, file1, sep="/")
+  path2 <<- paste(dir, file2, sep="/")
   if(file.exists(path1)) file.remove(path1)
   if(file.exists(path2)) file.remove(path2)
   
-  response1 <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
+  response1 <<- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
                                 out_dir = "~/Desktop",
                                 out_file_name = file1)
   
-  response2 <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
+  response2 <<- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
                                 out_dir = "~/Desktop")
 }
 
