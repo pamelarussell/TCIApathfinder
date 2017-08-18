@@ -16,3 +16,8 @@ This is my first submission.
 
 ## Downstream dependencies
 There are no downstream dependencies.
+
+## A note on tests and examples
+
+Tests and examples are passing locally, but are not run as part of the
+check because a key is required to access the wrapped API. 
