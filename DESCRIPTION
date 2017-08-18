@@ -1,13 +1,13 @@
 Package: TCIApathfinder
-Title: R Client for The Cancer Imaging Archive REST API
+Title: Client for the Cancer Imaging Archive REST API
 Version: 1.0.0
 Authors@R: person("Pamela", "Russell", email = "pamela.russell@ucdenver.edu", role = c("aut", "cre"))
-Description: A wrapper for The Cancer Imaging Archive's REST API. The Cancer 
-    Imaging Archive (TCIA) hosts de-identified medical images of cancer 
-    available for public download, as well as rich metadata for each image 
-    series. TCIA provides a REST API for programmatic access to the data. 
-    This package provides simple functions to access each API endpoint. 
-    For more information, see https://github.com/pamelarussell/TCIApathfinder
+Description: A wrapper for The Cancer Imaging Archive's REST API. The Cancer
+    Imaging Archive (TCIA) hosts de-identified medical images of cancer
+    available for public download, as well as rich metadata for each image
+    series. TCIA provides a REST API for programmatic access to the data.
+    This package provides simple functions to access each API endpoint.
+    For more information, see <https://github.com/pamelarussell/TCIApathfinder>
     and TCIA's website.
 Depends: R (>= 3.3.2)
 License: MIT + file LICENSE
