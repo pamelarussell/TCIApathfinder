@@ -10,7 +10,7 @@
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_collection_names()
 #' }
 #'
@@ -45,7 +45,7 @@ get_collection_names <- function() {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_patient_info()
 #' get_patient_info("TCGA-BRCA")
 #' }
@@ -87,7 +87,7 @@ get_patient_info <- function(collection = NULL) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_body_part_names()
 #' get_body_part_names(collection = "TCGA-BRCA")
 #' get_body_part_names(modality = "MR")
@@ -135,7 +135,7 @@ get_body_part_names <- function(collection = NULL, modality = NULL) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_modality_names()
 #' get_modality_names(collection = "TCGA-BRCA")
 #' get_modality_names(body_part = "BREAST")
@@ -186,7 +186,7 @@ get_modality_names <- function(collection = NULL, body_part = NULL) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_manufacturer_names()
 #' get_manufacturer_names(collection = "TCGA-BRCA")
 #' get_manufacturer_names(collection = "TCGA-BRCA", modality = "MR", body_part = "BREAST")
@@ -233,7 +233,7 @@ get_manufacturer_names <- function(collection = NULL, modality = NULL, body_part
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_patients_by_modality("TCGA-BRCA", "MR")
 #' }
 #'
@@ -275,7 +275,7 @@ get_patients_by_modality <- function(collection, modality) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_new_patients_in_collection("TCGA-BRCA", "2014-01-01")
 #' }
 #'
@@ -319,7 +319,7 @@ get_new_patients_in_collection <- function(collection, date) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_new_studies_in_collection("TCGA-BRCA", "2014-01-01")
 #' get_new_studies_in_collection("TCGA-BRCA", "2014-01-01", "TCGA-OL-A66O")
 #' }
@@ -368,7 +368,7 @@ get_new_studies_in_collection <- function(collection, date, patient_id = NULL) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_studies_in_collection("TCGA-BRCA")
 #' get_studies_in_collection("TCGA-BRCA", "TCGA-OL-A66O")
 #' }
@@ -406,7 +406,7 @@ get_studies_in_collection <- function(collection, patient_id = NULL) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_patient_studies()
 #' get_patient_studies(collection = "TCGA-BRCA")
 #' get_patient_studies(patient_id = "TCGA-OL-A6VO")
@@ -483,7 +483,7 @@ get_patient_studies <- function(collection = NULL, patient_id = NULL, study_inst
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_series_info()
 #' get_series_info(collection = "TCGA-BRCA")
 #' get_series_info(patient_id = "TCGA-OL-A6VO")
@@ -549,7 +549,7 @@ get_series_info <- function(collection = NULL,
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_series_size("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
 #' }
 #'
@@ -594,7 +594,7 @@ get_series_size <- function(series_instance_uid) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_sop_instance_uids("1.3.6.1.4.1.14519.5.2.1.5382.4002.272234209223992578700978260744")
 #' }
 #'
@@ -632,7 +632,7 @@ get_sop_instance_uids <- function(series_instance_uid) {
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' save_single_image(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
@@ -694,7 +694,7 @@ save_single_image <- function(series_instance_uid, sop_instance_uid, out_dir, ou
 #' }
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' save_image_series(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      out_dir = "~/Desktop")

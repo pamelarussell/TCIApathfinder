@@ -32,7 +32,7 @@ List containing elements:
 Get patient study information
 }
 \examples{
-\donttest{
+\dontrun{
 get_patient_studies()
 get_patient_studies(collection = "TCGA-BRCA")
 get_patient_studies(patient_id = "TCGA-OL-A6VO")

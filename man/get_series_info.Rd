@@ -55,7 +55,7 @@ List containing elements:
 Get image series information
 }
 \examples{
-\donttest{
+\dontrun{
 get_series_info()
 get_series_info(collection = "TCGA-BRCA")
 get_series_info(patient_id = "TCGA-OL-A6VO")

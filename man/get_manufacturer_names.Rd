@@ -32,7 +32,7 @@ List containing elements:
 Get manufacturer names
 }
 \examples{
-\donttest{
+\dontrun{
 get_manufacturer_names()
 get_manufacturer_names(collection = "TCGA-BRCA")
 get_manufacturer_names(collection = "TCGA-BRCA", modality = "MR", body_part = "BREAST")

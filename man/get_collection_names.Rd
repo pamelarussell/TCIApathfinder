@@ -18,7 +18,7 @@ List containing elements:
 Get the names of all TCIA collections
 }
 \examples{
-\donttest{
+\dontrun{
 get_collection_names()
 }
 

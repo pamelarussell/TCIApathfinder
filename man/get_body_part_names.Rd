@@ -28,7 +28,7 @@ List containing elements:
 Get body part names
 }
 \examples{
-\donttest{
+\dontrun{
 get_body_part_names()
 get_body_part_names(collection = "TCGA-BRCA")
 get_body_part_names(modality = "MR")

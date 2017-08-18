@@ -23,7 +23,7 @@ List containing elements:
 Get patient information
 }
 \examples{
-\donttest{
+\dontrun{
 get_patient_info()
 get_patient_info("TCGA-BRCA")
 }
