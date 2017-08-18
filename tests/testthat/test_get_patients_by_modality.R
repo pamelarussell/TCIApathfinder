@@ -1,11 +1,8 @@
 message("\nTesting get_patients_by_modality")
 
-if (identical(Sys.getenv("NOT_CRAN"), "true")) {
-  patients_tcga_mr <- get_patients_by_modality(collection = "TCGA-BRCA", modality = "MR")
-}
-
 test_that("Structure of patients by modality value", {
   skip_on_cran()
+  patients_tcga_mr <- get_patients_by_modality(collection = "TCGA-BRCA", modality = "MR")
   expect_equal(length(patients_tcga_mr), 3)
   expect_true(length(patients_tcga_mr$patient_ids) > 100)
   expect_true(length(patients_tcga_mr$content) > 100)
@@ -14,6 +11,7 @@ test_that("Structure of patients by modality value", {
 
 test_that("Patient values for TCGA-BRCA and MR", {
   skip_on_cran()
+  patients_tcga_mr <- get_patients_by_modality(collection = "TCGA-BRCA", modality = "MR")
   expect_true("TCGA-E2-A1B5" %in% patients_tcga_mr$patient_ids)
 })
 

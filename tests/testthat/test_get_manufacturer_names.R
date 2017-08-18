@@ -1,19 +1,8 @@
 message("\nTesting get_manufacturer_names")
 
-if (identical(Sys.getenv("NOT_CRAN"), "true")) {
-  skip_on_cran()
-  manufacturers_all <- get_manufacturer_names()
-  manufacturers_tcga <- get_manufacturer_names(collection = "TCGA-BRCA")
-  manufacturers_breast <- get_manufacturer_names(body_part = "BREAST")
-  manufacturers_mr <- get_manufacturer_names(modality = "MR")
-  manufacturers_tcga_breast <- get_manufacturer_names(collection = "TCGA-BRCA", body_part = "BREAST")
-  manufacturers_tcga_mr <- get_manufacturer_names(collection = "TCGA-BRCA", modality = "MR")
-  manufacturers_breast_mr <- get_manufacturer_names(body_part = "BREAST", modality = "MR")
-  manufacturers_tcga_breast_mr <- get_manufacturer_names(collection = "TCGA-BRCA", body_part = "BREAST", modality = "MR")
-}
-
 test_that("Structure of manufacturers value", {
   skip_on_cran()
+  manufacturers_all <- get_manufacturer_names()
   expect_equal(length(manufacturers_all), 3)
   expect_true(length(manufacturers_all$manufacturer_names) > 50)
   expect_true(length(manufacturers_all$content) > 50)
@@ -22,42 +11,49 @@ test_that("Structure of manufacturers value", {
 
 test_that("Manufacturer names for TCGA-BRCA", {
   skip_on_cran()
+  manufacturers_tcga <- get_manufacturer_names(collection = "TCGA-BRCA")
   expect_true(length(manufacturers_tcga$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_tcga$manufacturer_names)
 })
 
 test_that("Manufacturer names for breast", {
   skip_on_cran()
+  manufacturers_breast <- get_manufacturer_names(body_part = "BREAST")
   expect_true(length(manufacturers_breast$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_breast$manufacturer_names)
 })
 
 test_that("Manufacturer names for MR", {
   skip_on_cran()
+  manufacturers_mr <- get_manufacturer_names(modality = "MR")
   expect_true(length(manufacturers_mr$manufacturer_names) > 20)
   expect_true("GE MEDICAL SYSTEMS" %in% manufacturers_mr$manufacturer_names)
 })
 
 test_that("Manufacturer names for TCGA-BRCA and breast", {
   skip_on_cran()
+  manufacturers_tcga_breast <- get_manufacturer_names(collection = "TCGA-BRCA", body_part = "BREAST")
   expect_true(length(manufacturers_tcga_breast$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_tcga_breast$manufacturer_names)
 })
 
 test_that("Manufacturer names for TCGA-BRCA and MR", {
   skip_on_cran()
+  manufacturers_tcga_mr <- get_manufacturer_names(collection = "TCGA-BRCA", modality = "MR")
   expect_true(length(manufacturers_tcga_mr$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_tcga_mr$manufacturer_names)
 })
 
 test_that("Manufacturer names for breast and MR", {
   skip_on_cran()
+  manufacturers_breast_mr <- get_manufacturer_names(body_part = "BREAST", modality = "MR")
   expect_true(length(manufacturers_breast_mr$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_breast_mr$manufacturer_names)
 })
 
 test_that("Manufacturer names for TCGA-BRCA, breast, and MR", {
   skip_on_cran()
+  manufacturers_tcga_breast_mr <- get_manufacturer_names(collection = "TCGA-BRCA", body_part = "BREAST", modality = "MR")
   expect_true(length(manufacturers_tcga_breast_mr$manufacturer_names) > 3)
   expect_true("SIEMENS" %in% manufacturers_tcga_breast_mr$manufacturer_names)
 })

@@ -1,20 +1,14 @@
 message("\nTesting get_series_info")
 
-if (identical(Sys.getenv("NOT_CRAN"), "true")) {
-  series_all <- get_series_info()
-  series_coll <- get_series_info(collection = "TCGA-BRCA")
-  series_pat <- get_series_info(patient_id = "TCGA-OL-A5DA")
-  series_study_uid <- get_series_info(study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
-  series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
-  series_modality <- get_series_info(modality = "MR")
-  series_body_part <- get_series_info(body_part = "BREAST")
-  series_model <- get_series_info(manufacturer_model_name = "Symphony")
-  series_manufacturer <- get_series_info(manufacturer = "SIEMENS")
-  series_pat_series_id <- get_series_info(patient_id = "TCGA-OL-A5DA", series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
-}
-
 test_that("Relative response sizes", {
   skip_on_cran()
+  series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+  series_coll <- get_series_info(collection = "TCGA-BRCA")
+  series_pat <- get_series_info(patient_id = "TCGA-OL-A5DA")
+  series_model <- get_series_info(manufacturer_model_name = "Symphony")
+  series_all <- get_series_info()
+  series_pat_series_id <- get_series_info(patient_id = "TCGA-OL-A5DA", series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+  series_manufacturer <- get_series_info(manufacturer = "SIEMENS")
   expect_true(nrow(series_pat$series) > nrow(series_series_id$series))
   expect_true(nrow(series_all$series) > nrow(series_coll$series))
   expect_true(nrow(series_coll$series) > nrow(series_pat$series))
@@ -24,6 +18,12 @@ test_that("Relative response sizes", {
 
 test_that("Response intersection", {
   skip_on_cran()
+  series_pat <- get_series_info(patient_id = "TCGA-OL-A5DA")
+  series_all <- get_series_info()
+  series_study_uid <- get_series_info(study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
+  series_modality <- get_series_info(modality = "MR")
+  series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+  series_coll <- get_series_info(collection = "TCGA-BRCA")
   expect_true(all(unique(series_study_uid$series$series_instance_uid) %in% unique(series_pat$series$series_instance_uid)))
   expect_true(all(unique(series_modality$series$series_instance_uid) %in% unique(series_all$series$series_instance_uid)))
   expect_true(all(unique(series_series_id$series$series_instance_uid) %in% unique(series_study_uid$series$series_instance_uid)))
@@ -32,6 +32,9 @@ test_that("Response intersection", {
 
 test_that("Structure of series value", {
   skip_on_cran()
+  series_all <- get_series_info()
+  series_coll <- get_series_info(collection = "TCGA-BRCA")
+  series_manufacturer <- get_series_info(manufacturer = "SIEMENS")
   expect_equal(length(series_all), 3)
   expect_equal(ncol(series_coll$series), 15)
   expect_true(length(series_all$content) > 1000)
@@ -40,42 +43,51 @@ test_that("Structure of series value", {
 
 test_that("Collection", {
   skip_on_cran()
+  series_coll <- get_series_info(collection = "TCGA-BRCA")
   expect_true(nrow(series_coll$series) > 100)
 })
 
 test_that("Patient ID", {
   skip_on_cran()
+  series_pat <- get_series_info(patient_id = "TCGA-OL-A5DA")
   expect_true(nrow(series_pat$series) > 5)
 })
 
 test_that("Study instance UID", {
   skip_on_cran()
+  series_study_uid <- get_series_info(study_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
   expect_true(nrow(series_study_uid$series) > 5)
 })
 
 test_that("Series instance UID", {
   skip_on_cran()
+  series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+  series_pat_series_id <- get_series_info(patient_id = "TCGA-OL-A5DA", series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
   expect_equal(nrow(series_series_id$series), 1)
   expect_equal(nrow(series_pat_series_id$series), 1)
 })
 
 test_that("Modality", {
   skip_on_cran()
+  series_modality <- get_series_info(modality = "MR")
   expect_true(nrow(series_modality$series) > 1000)
 })
 
 test_that("Manufacturer model name", {
   skip_on_cran()
+  series_model <- get_series_info(manufacturer_model_name = "Symphony")
   expect_true(nrow(series_model$series) > 100)
 })
 
 test_that("Manufacturer", {
   skip_on_cran()
+  series_manufacturer <- get_series_info(manufacturer = "SIEMENS")
   expect_true(nrow(series_manufacturer$series) > 100)
 })
 
 test_that("Particular series", {
   skip_on_cran()
+  series_series_id <- get_series_info(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
   expect_identical(as.character(series_series_id$series[1, "study_instance_uid"]), "1.3.6.1.4.1.14519.5.2.1.5382.4002.104582989590517557856962159716")
   expect_identical(as.character(series_series_id$series[1, "series_instance_uid"]), "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
   expect_identical(as.character(series_series_id$series[1, "modality"]), "MR")
