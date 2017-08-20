@@ -20,11 +20,19 @@ for each image series. TCIA provides a REST API for programmatic access
 to the data. This package provides simple functions to access each API 
 endpoint. For more information about TCIA, see TCIA's [website](http://www.cancerimagingarchive.net/).
 
+TCIApathfinder is on [CRAN](https://CRAN.R-project.org/package=TCIApathfinder).
+
 ## Installation
 
-You can install TCIApathfinder from github with:
+From within R:
 
-```{r gh-installation, eval = FALSE}
+```{r eval = F}
+install.packages("TCIApathfinder")
+```
+
+From GitHub:
+
+```{r eval = F}
 # install.packages("devtools")
 devtools::install_github("pamelarussell/TCIApathfinder")
 ```
