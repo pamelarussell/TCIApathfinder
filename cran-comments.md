@@ -3,21 +3,12 @@
 * win-builder
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. 
-
-There was 1 NOTE:
-
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Pamela Russell <pamela.russell@ucdenver.edu>’
-
-New submission
-
-This is my first submission.
+There were no ERRORs, WARNINGs, or NOTEs. 
 
 ## Downstream dependencies
 There are no downstream dependencies.
 
-## A note on tests and examples
-
+## A note on authentication
 Tests and examples are passing locally, but are not run as part of the
 check because a key is required to access the wrapped API. 
+Vignettes require an API key to build.

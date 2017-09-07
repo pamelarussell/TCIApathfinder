@@ -1,0 +1,160 @@
+---
+title: "Introduction to TCIApathfinder"
+author: "Pamela Russell"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to TCIApathfinder}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Installation
+
+From within R:
+
+```{r eval = F}
+install.packages("TCIApathfinder")
+```
+
+From GitHub:
+
+```{r eval = F}
+# install.packages("devtools")
+devtools::install_github("pamelarussell/TCIApathfinder")
+```
+
+# Authentication
+
+An API key is required to access data from TCIA. To obtain and correctly store your API key:
+
+1. Request a key from TCIA by following the instructions [here](https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+%28REST+API%29+Usage+Guide).
+
+2. Create a text file in your home directory (`~/`) called `.Renviron`. 
+
+3. Create the contents of the `.Renviron` file like this, making sure the last line in the file is empty. Otherwise, R will silently fail to load the file.
+  
+    ```
+    TCIA_API_KEY=xxx-xxx-xxx-xxx
+    
+    ```
+
+4. Restart R. `.Renviron` is only processed at the beginning of an R session.
+
+
+# Usage
+
+## Load the package:
+
+```{r}
+library(TCIApathfinder)
+```
+
+## Get the names of all TCIA collections:
+
+```{r cache=T}
+collections <- get_collection_names()
+head(collections$collection_names)
+```
+
+## Get the names of all imaging modalities
+
+```{r cache=T}
+modalities <- get_modality_names()
+head(modalities$modalities)
+```
+
+Note: a collection or body part can be specified to narrow down results.
+
+## Get the names of all body parts studied:
+
+```{r cache=T}
+body_parts <- get_body_part_names()
+head(body_parts$body_parts)
+```
+
+Note: a collection or modality can be specified to narrow down results.
+
+## Get information for all patients in a collection
+
+```{r cache=T}
+patients_tcga_brca <- get_patient_info(collection = "TCGA-BRCA")
+head(patients_tcga_brca$patients)
+```
+
+Note: if no collection is passed, patients for all collections are returned.
+
+## Get all image series based on criteria
+
+```{r cache=T}
+series <- get_series_info(patient_id = "TCGA-AR-A1AQ")
+head(series$series)
+```
+
+Note: other ways to narrow down results include
+
+- collection
+- study instance UID
+- series instance UID
+- modality
+- body part
+- manufacturer
+- manufacturer model name
+
+## Get detailed information on all imaging studies for a patient
+
+```{r cache=T}
+studies <- get_patient_studies(patient_id = "TCGA-AR-A1AQ")
+head(studies$patient_studies)
+```
+
+The variables in `studies$patient_studies` correspond to the fields of a PatientStudy object
+as described in the [API documentation](https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values).
+
+Note: other ways to narrow down results include a collection or a study instance UID.
+
+## Get all imaging studies for a collection
+
+```{r cache=T}
+studies_tcga_brca <- get_studies_in_collection(collection = "TCGA-BRCA")
+head(studies_tcga_brca$studies)
+```
+
+Note: a patient ID can be provided to further narrow down results.
+
+## Get individual DICOM image IDs for an image series
+
+```{r cache=T}
+sop_uids <- get_sop_instance_uids(
+  series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256")
+head(sop_uids$sop_instance_uids)
+```
+
+## Download a single DICOM image
+
+```{r cache=T}
+im <- save_single_image(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
+                  sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.113224119964450170072494597907",
+                  out_dir = "~/Desktop")
+im$out_file
+```
+
+Note: a file name can be provided to override the original file name.
+
+## Download an image series as a zip file
+
+```{r cache=T}
+ser <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
+                         out_dir = "~/Desktop", out_file_name = "series.zip")
+ser$out_file
+```
+
+## Additional functions
+
+See package documentation for further details:
+
+- get_series_size
+- get_manufacturer_names
+- get_new_patients_in_collection
+- get_new_studies_in_collection
+- get_patients_by_modality
