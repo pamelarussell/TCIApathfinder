@@ -9,6 +9,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r echo = F, message = F}
+api_key <- Sys.getenv("TCIA_API_KEY")
+if(identical(api_key, "")) {
+  knitr::opts_chunk$set(eval = FALSE)
+  message("Note: code examples will not be evaluated because the system does not have a valid API key installed.")
+}
+```
+
 TCIApathfinder wraps the Cancer Imaging Archive REST API. See TCIApathfinder vignettes for an introduction to package usage. This vignette shows how images downloaded with TCIApathfinder can be processed and analyzed with other R packages.
 
 ## Use TCIApathfinder to download and extract an image series
