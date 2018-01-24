@@ -21,7 +21,11 @@ add_endpoint <- function(endpoint) {
 
 # Send the request and get the response
 get_response <- function(endpoint, query) {
-  httr::GET(add_endpoint(endpoint), ua, query = query)
+  tryCatch({
+    httr::GET(add_endpoint(endpoint), ua, query = query)
+  }, error = function(e) {
+    stop("API request failed. Is your API key valid and up to date?")
+  })
 }
 
 # Make sure response is JSON

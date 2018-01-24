@@ -21,7 +21,7 @@ TCIApathfinder wraps the Cancer Imaging Archive REST API. See TCIApathfinder vig
 
 ## Use TCIApathfinder to download and extract an image series
 
-```{r cache = T}
+```{r}
 library(TCIApathfinder)
 
 # Pick a patient of interest
@@ -43,7 +43,7 @@ unzip("~/Desktop/series1.zip", exdir = dicom_dir)
 
 The [oro.dicom](https://CRAN.R-project.org/package=oro.dicom) package provides functions to process image files in DICOM format, which is the format used by TCIA. See oro.dicom package documentation for further details.
 
-```{r cache = T}
+```{r}
 suppressPackageStartupMessages(library(oro.dicom))
 
 # Read in the DICOM images and create a 3D array of intensities
@@ -55,25 +55,6 @@ dim(img_array_3d)
 ```
 
 Note that this series consists of 116 DICOM images. Each image is 256x256 pixels.
-
-## Use the "radiomics" package to extract features from images
-
-The [radiomics](https://CRAN.R-project.org/package=radiomics) package provides functions to calculate first and second order statistics from grayscale images. See radiomics package documentation for further information.
-
-```{r}
-suppressPackageStartupMessages(library(radiomics))
-
-# Pick one of the image slices
-img_array <- img_array_3d[, , 1]
-img_matrix <- matrix(img_array, dim(img_array))
-
-# Calculate basic image features
-calc_features(img_matrix)
-
-# Analyze the grey level co-occurrence matrix
-glcm <- glcm(img_matrix)
-calc_features(glcm)
-```
 
 ## Download genomic data for this patient from The Cancer Genome Atlas
 
