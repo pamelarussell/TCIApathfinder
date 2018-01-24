@@ -9,7 +9,7 @@ Description: A wrapper for The Cancer Imaging Archive's REST API. The Cancer
     This package provides simple functions to access each API endpoint.
     For more information, see <https://github.com/pamelarussell/TCIApathfinder>
     and TCIA's website.
-Depends: R (>= 3.4.3)
+Depends: R (>= 3.4.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
