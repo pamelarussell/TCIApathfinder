@@ -44,6 +44,11 @@ Package usage
 
 Detailed vignettes on package usage and downstream image analysis can be viewed on [CRAN](https://CRAN.R-project.org/package=TCIApathfinder) or from within an R session with `browseVignettes("TCIApathfinder")`.
 
+Citation
+--------
+
+TBA. Check out our [biorXiv preprint](https://www.biorxiv.org/content/early/2017/12/30/240986).
+
 More information on the TCIA REST API
 -------------------------------------
 
