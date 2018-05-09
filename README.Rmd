@@ -60,7 +60,7 @@ Detailed vignettes on package usage and downstream image analysis can be viewed 
 
 ## Citation
 
-TBA. Check out our [biorXiv preprint](https://www.biorxiv.org/content/early/2017/12/30/240986).
+TBA. Check out our [bioRxiv preprint](https://www.biorxiv.org/content/early/2017/12/30/240986).
 
 ## More information on the TCIA REST API
 
