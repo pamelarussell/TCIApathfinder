@@ -47,7 +47,7 @@ Detailed vignettes on package usage and downstream image analysis can be viewed 
 Citation
 --------
 
-TBA. Check out our [bioRxiv preprint](https://www.biorxiv.org/content/early/2017/12/30/240986).
+"TCIApathfinder: An R Client for the Cancer Imaging Archive REST API" [Cancer Research 2018](http://dx.doi.org/10.1158/0008-5472.can-18-0678)
 
 More information on the TCIA REST API
 -------------------------------------
