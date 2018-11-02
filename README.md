@@ -57,7 +57,7 @@ from within an R session with `browseVignettes("TCIApathfinder")`.
 
 ## Citation
 
-[TCIApathfinder: An R Client for the Cancer Imaging Archive REST API](https://doi.org:10.1158/0008-5472.CAN-18-0678). Pamela Russell, Kelly Fountain, Dulcy Wolverton and Debashis Ghosh. Cancer Res August 1 2018 (78) (15) 4424-4426; DOI: 10.1158/0008-5472.CAN-18-0678.
+[TCIApathfinder: An R Client for the Cancer Imaging Archive REST API](https://doi.org/10.1158/0008-5472.CAN-18-0678). Pamela Russell, Kelly Fountain, Dulcy Wolverton and Debashis Ghosh. Cancer Res August 1 2018 (78) (15) 4424-4426; DOI: 10.1158/0008-5472.CAN-18-0678.
 
 ## More information on the TCIA REST API
 
