@@ -1,3 +1,7 @@
+## TCIApathfinder 1.0.2
+
+* Added citation
+
 # TCIApathfinder 1.0.2
 
 * Added message encouraging users to check if API key is up to date.
