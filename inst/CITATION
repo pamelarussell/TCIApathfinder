@@ -1,0 +1,9 @@
+structure(list(russell2018tciapathfinder = structure(list(title = "{TCIApathfinder}: an {R} client for The Cancer Imaging Archive {REST} {API}", 
+    author = structure(list(list(given = "Pamela", family = "Russell", 
+        role = NULL, email = NULL, comment = NULL), list(given = "Kelly", 
+        family = "Fountain", role = NULL, email = NULL, comment = NULL), 
+        list(given = "Dulcy", family = "Wolverton", role = NULL, 
+            email = NULL, comment = NULL), list(given = "Debashis", 
+            family = "Ghosh", role = NULL, email = NULL, comment = NULL)), class = "person"), 
+    journal = "Cancer research", volume = "78", number = "15", 
+    pages = "4424--4426", year = "2018", publisher = "AACR"), bibtype = "Article", key = "russell2018tciapathfinder")), class = "bibentry", strings = structure(character(0), .Names = character(0)))
