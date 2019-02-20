@@ -34,9 +34,8 @@ series <- get_series_info(patient_id = patient)
 series_instance_uid <- as.character(series$series[1, "series_instance_uid"])
 
 # Download and unzip the image series
-ser <- save_image_series(series_instance_uid = series_instance_uid, out_dir = "~/Desktop", out_file_name = "series1.zip")
-dicom_dir <- "~/Desktop/series1/"
-unzip("~/Desktop/series1.zip", exdir = dicom_dir)
+ser <- save_extracted_image_series(series_instance_uid = series_instance_uid)
+dicom_dir <- ser$dirs
 ```
 
 ## Use the "oro.dicom" package to load the image series

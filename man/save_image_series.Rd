@@ -4,7 +4,8 @@
 \alias{save_image_series}
 \title{Save a series of DICOM image files as a zip file}
 \usage{
-save_image_series(series_instance_uid, out_dir, out_file_name = NULL)
+save_image_series(series_instance_uid, out_dir = NULL,
+  out_file_name = NULL)
 }
 \arguments{
 \item{series_instance_uid}{Series instance UID. To get a list of available series instance UIDs, call \code{\link{get_series_info}}.

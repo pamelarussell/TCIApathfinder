@@ -4,7 +4,7 @@
 \alias{save_single_image}
 \title{Save a single DICOM image file}
 \usage{
-save_single_image(series_instance_uid, sop_instance_uid, out_dir,
+save_single_image(series_instance_uid, sop_instance_uid, out_dir = NULL,
   out_file_name = NULL)
 }
 \arguments{
@@ -30,12 +30,11 @@ Save a single DICOM image file
 \dontrun{
 save_single_image(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
-     sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
-     out_dir = "~/Desktop")
+     sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283")
 save_single_image(
      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
-     out_dir = "~/Desktop", out_file_name = "file.dcm")
+     out_file_name = "file.dcm")
 }
 
 }

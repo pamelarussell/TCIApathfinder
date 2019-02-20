@@ -635,12 +635,11 @@ get_sop_instance_uids <- function(series_instance_uid) {
 #' \dontrun{
 #' save_single_image(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
-#'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
-#'      out_dir = "~/Desktop")
+#'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283")
 #' save_single_image(
 #'      series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867",
 #'      sop_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.257663256941568276393774062283",
-#'      out_dir = "~/Desktop", out_file_name = "file.dcm")
+#'      out_file_name = "file.dcm")
 #' }
 #'
 #' @seealso \code{\link{get_series_info}},
@@ -649,7 +648,8 @@ get_sop_instance_uids <- function(series_instance_uid) {
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 #'
 #' @export
-save_single_image <- function(series_instance_uid, sop_instance_uid, out_dir, out_file_name = NULL) {
+save_single_image <- function(series_instance_uid, sop_instance_uid,
+                              out_dir = NULL, out_file_name = NULL) {
   endpoint <- "/query/getSingleImage"
   response <- get_response(endpoint, query = list(format = "json",
                                                   api_key = get_api_key(),
@@ -666,6 +666,10 @@ save_single_image <- function(series_instance_uid, sop_instance_uid, out_dir, ou
   } else {
     # If no file name was provided, get it from the response
     if(is.null(out_file_name)) out_file_name <- unlist(strsplit(gsub("\"", "", response$headers$`content-disposition`), "="))[2]
+    if (is.null(out_dir)) {
+      out_dir = tempfile()
+      dir.create(out_dir, recursive = TRUE)
+    }
     out_file <- paste(out_dir, out_file_name, sep = "/")
     if(file.exists(out_file)) {
       stop(paste("File exists:", out_file))
@@ -708,7 +712,8 @@ save_single_image <- function(series_instance_uid, sop_instance_uid, out_dir, ou
 #' \href{https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values}{TCIA API object definitions}
 #'
 #' @export
-save_image_series <- function(series_instance_uid, out_dir, out_file_name = NULL) {
+save_image_series <- function(series_instance_uid, out_dir = NULL,
+                              out_file_name = NULL) {
   endpoint <- "/query/getImage"
   response <- get_response(endpoint, query = list(format = "json",
                                                   api_key = get_api_key(),
@@ -724,6 +729,10 @@ save_image_series <- function(series_instance_uid, out_dir, out_file_name = NULL
   } else {
     # If no file name was provided, get it from the response
     if(is.null(out_file_name)) out_file_name <- unlist(strsplit(gsub("\"", "", response$headers$`content-disposition`), "="))[2]
+    if (is.null(out_dir)) {
+      out_dir = tempfile()
+      dir.create(out_dir, recursive = TRUE)
+    }
     out_file <- paste(out_dir, out_file_name, sep = "/")
     if(file.exists(out_file)) {
       stop(paste("File exists:", out_file))
