@@ -1,3 +1,5 @@
+^cran-comments\.md$
+^README\.Rmd$
 ^\.Rhistory$
 ^TCIApathfinder\.Rproj$
 ^\.Rproj\.user$
