@@ -1,0 +1,7 @@
+^README_cache$
+^\.travis\.yml$
+^cran-comments\.md$
+^README\.Rmd$
+^\.Rhistory$
+^TCIApathfinder\.Rproj$
+^\.Rproj\.user$

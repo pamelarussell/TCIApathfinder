@@ -1,4 +1,7 @@
 library(testthat)
 library(TCIApathfinder)
 
-test_check("TCIApathfinder")
+api_key <- Sys.getenv("TCIA_API_KEY")
+if (!identical(api_key, "")) {
+  test_check("TCIApathfinder")
+}

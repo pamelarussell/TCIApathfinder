@@ -1,8 +1,13 @@
 
 # TCIApathfinder
 
+<!-- badges: start -->
+
 [![](https://www.r-pkg.org/badges/version/TCIApathfinder)](https://cran.r-project.org/web/packages/TCIApathfinder/index.html)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/TCIApathfinder?color=brightgreen)](https://cran.r-project.org/web/packages/TCIApathfinder/index.html)
+[![Travis build
+status](https://travis-ci.com/pamelarussell/TCIApathfinder.svg?branch=master)](https://travis-ci.com/pamelarussell/TCIApathfinder)
+<!-- badges: end -->
 
 TCIApathfinder is a wrapper for The Cancer Imaging Archive’s REST API
 v3. The Cancer Imaging Archive (TCIA) hosts de-identified medical images
@@ -63,7 +68,10 @@ From within R:
 citation("TCIApathfinder")
 ```
 
-[TCIApathfinder: An R Client for the Cancer Imaging Archive REST API](https://doi.org/10.1158/0008-5472.CAN-18-0678). Pamela Russell, Kelly Fountain, Dulcy Wolverton and Debashis Ghosh. Cancer Res August 1 2018 (78) (15) 4424-4426; DOI: 10.1158/0008-5472.CAN-18-0678.
+[TCIApathfinder: An R Client for the Cancer Imaging Archive REST
+API](https://doi.org/10.1158/0008-5472.CAN-18-0678). Pamela Russell,
+Kelly Fountain, Dulcy Wolverton and Debashis Ghosh. Cancer Res August 1
+2018 (78) (15) 4424-4426; DOI: 10.1158/0008-5472.CAN-18-0678.
 
 ## More information on the TCIA REST API
 

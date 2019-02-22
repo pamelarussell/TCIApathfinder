@@ -1,4 +1,9 @@
-## TCIApathfinder 1.0.2
+## TCIApathfinder 1.0.4
+
+* Added citation file.
+* Added `save_extracted_image_series` and `extract_image_series` and have pass through for `out_dir`.   Fixes #2 (@muschellij2).
+
+## TCIApathfinder 1.0.3
 
 * Added citation
 
