@@ -148,12 +148,21 @@ im$out_file
 
 Note: a file name can be provided to override the original file name.
 
-## Download an image series as a zip file
+## Download an image series and extract it
 
 ```{r}
 ser <- save_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.3344.4002.298037359751562809791703106256",
                          out_file_name = "series.zip")
-ser$out_file
+zip <- ser$out_file
+extracted <- extract_image_series(zip)
+extracted$dirs
+```
+
+## Download, save and extract an image series, optionally to a temporary location
+
+```{r}
+ser <- save_extracted_image_series(series_instance_uid = "1.3.6.1.4.1.14519.5.2.1.5382.4002.806935685832642465081499816867")
+ser$dirs
 ```
 
 ## Additional functions
