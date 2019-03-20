@@ -5,3 +5,4 @@
 ^\.Rhistory$
 ^TCIApathfinder\.Rproj$
 ^\.Rproj\.user$
+^.httr-oauth$
