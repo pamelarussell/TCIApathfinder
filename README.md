@@ -3,8 +3,8 @@
 
 <!-- badges: start -->
 
-[![](https://www.r-pkg.org/badges/version/TCIApathfinder)](https://cran.r-project.org/web/packages/TCIApathfinder/index.html)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/TCIApathfinder?color=brightgreen)](https://cran.r-project.org/web/packages/TCIApathfinder/index.html)
+[![](https://www.r-pkg.org/badges/version/TCIApathfinder)](https://cran.r-project.org/package=TCIApathfinder)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/TCIApathfinder?color=brightgreen)](https://cran.r-project.org/package=TCIApathfinder)
 [![Travis build
 status](https://travis-ci.com/pamelarussell/TCIApathfinder.svg?branch=master)](https://travis-ci.com/pamelarussell/TCIApathfinder)
 <!-- badges: end -->
@@ -18,7 +18,7 @@ endpoint. For more information about TCIA, see TCIA’s
 [website](http://www.cancerimagingarchive.net/).
 
 TCIApathfinder is on
-[CRAN](https://CRAN.R-project.org/package=TCIApathfinder).
+[CRAN](https://cran.r-project.org/package=TCIApathfinder).
 
 ## Installation
 
