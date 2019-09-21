@@ -1,6 +1,10 @@
+## TCIApathfinder 1.0.6
+
+* Remove requirement to provide an API key as authentication is no longer required for TCIA API
+
 ## TCIApathfinder 1.0.5
 
-Updated maintainer email
+* Updated maintainer email
 
 ## TCIApathfinder 1.0.4
 

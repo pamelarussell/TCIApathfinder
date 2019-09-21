@@ -1,6 +1,6 @@
 Package: TCIApathfinder
 Title: Client for the Cancer Imaging Archive REST API
-Version: 1.0.5
+Version: 1.0.6
 Authors@R: person("Pamela", "Russell", email = "pamela.russell@gmail.com", role = c("aut", "cre"))
 Description: A wrapper for The Cancer Imaging Archive's REST API. The Cancer
     Imaging Archive (TCIA) hosts de-identified medical images of cancer

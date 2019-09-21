@@ -3,7 +3,7 @@
 * win-builder
 
 ## R CMD check results
-There were no ERRORs or WARNINGs. There was one NOTE: new maintainer email.
+There were no ERRORs, WARNINGs or NOTEs.
 
 ## Tests and examples require authentication
-Tests and examples are passing locally, but are not run as part of the check because a key is required to access the wrapped API. 
+Tests and examples are passing locally, but nost are not run as part of the check because they take too long to run.
