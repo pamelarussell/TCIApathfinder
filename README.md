@@ -37,8 +37,8 @@ devtools::install_github("pamelarussell/TCIApathfinder")
 
 ## Authentication
 
-An API key is required to access data from TCIA. To obtain and correctly
-store your API key:
+An API key is not needed to access public collections on TCIA but it could be useful for private collections. 
+To obtain and correctly store your API key:
 
 1.  Request a key from TCIA by following the instructions
     [here](https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+%28REST+API%29+Usage+Guide).

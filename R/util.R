@@ -1,11 +1,7 @@
 
 # Get API key
 get_api_key <- function() {
-  api_key <- Sys.getenv("TCIA_API_KEY")
-  if(identical(api_key, "")) {
-    stop("Please request and store a valid API key (instructions: https://github.com/pamelarussell/TCIApathfinder)")
-  }
-  api_key
+  Sys.getenv("TCIA_API_KEY")
 }
 
 # The base URL and resource
