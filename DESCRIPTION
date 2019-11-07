@@ -14,6 +14,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: httr, jsonlite
+BugReports: https://github.com/pamelarussell/TCIApathfinder/issues
 RoxygenNote: 6.1.1
 Suggests: knitr,
     rmarkdown,
