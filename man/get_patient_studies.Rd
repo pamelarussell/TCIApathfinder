@@ -4,8 +4,11 @@
 \alias{get_patient_studies}
 \title{Get patient study information}
 \usage{
-get_patient_studies(collection = NULL, patient_id = NULL,
-  study_instance_uid = NULL)
+get_patient_studies(
+  collection = NULL,
+  patient_id = NULL,
+  study_instance_uid = NULL
+)
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection

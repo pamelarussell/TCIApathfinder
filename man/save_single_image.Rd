@@ -4,8 +4,12 @@
 \alias{save_single_image}
 \title{Save a single DICOM image file}
 \usage{
-save_single_image(series_instance_uid, sop_instance_uid, out_dir = NULL,
-  out_file_name = NULL)
+save_single_image(
+  series_instance_uid,
+  sop_instance_uid,
+  out_dir = NULL,
+  out_file_name = NULL
+)
 }
 \arguments{
 \item{series_instance_uid}{Series instance UID. To get a list of available series instance UIDs, call \code{\link{get_series_info}}.}

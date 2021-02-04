@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![](https://www.r-pkg.org/badges/version/TCIApathfinder)](https://cran.r-project.org/package=TCIApathfinder) [![](http://cranlogs.r-pkg.org/badges/grand-total/TCIApathfinder?color=brightgreen)](https://cran.r-project.org/package=TCIApathfinder)
 [![Travis build status](https://travis-ci.com/pamelarussell/TCIApathfinder.svg?branch=master)](https://travis-ci.com/pamelarussell/TCIApathfinder)
+[![R-CMD-check](https://github.com/pamelarussell/TCIApathfinder/workflows/R-CMD-check/badge.svg)](https://github.com/pamelarussell/TCIApathfinder/actions)
 <!-- badges: end -->
 
 TCIApathfinder is a wrapper for The Cancer Imaging Archive's REST API v3.
