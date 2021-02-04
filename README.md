@@ -7,6 +7,7 @@
 [![](http://cranlogs.r-pkg.org/badges/grand-total/TCIApathfinder?color=brightgreen)](https://cran.r-project.org/package=TCIApathfinder)
 [![Travis build
 status](https://travis-ci.com/pamelarussell/TCIApathfinder.svg?branch=master)](https://travis-ci.com/pamelarussell/TCIApathfinder)
+[![R-CMD-check](https://github.com/pamelarussell/TCIApathfinder/workflows/R-CMD-check/badge.svg)](https://github.com/pamelarussell/TCIApathfinder/actions)
 <!-- badges: end -->
 
 TCIApathfinder is a wrapper for The Cancer Imaging Archive’s REST API
@@ -18,7 +19,7 @@ endpoint. For more information about TCIA, see TCIA’s
 [website](http://www.cancerimagingarchive.net/).
 
 TCIApathfinder is on
-[CRAN](https://cran.r-project.org/package=TCIApathfinder).
+[CRAN](https://CRAN.R-project.org/package=TCIApathfinder).
 
 ## Installation
 
@@ -37,8 +38,9 @@ devtools::install_github("pamelarussell/TCIApathfinder")
 
 ## Authentication
 
-An API key is not needed to access public collections on TCIA but it could be useful for private collections. 
-To obtain and correctly store your API key:
+An API key is not needed to access public collections on TCIA but it
+could be useful for private collections. To obtain and correctly store
+your API key:
 
 1.  Request a key from TCIA by following the instructions
     [here](https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+%28REST+API%29+Usage+Guide).
@@ -48,7 +50,7 @@ To obtain and correctly store your API key:
 3.  Create the contents of the `.Renviron` file like this, making sure
     the last line in the file is empty. Otherwise, R will silently fail
     to load the file.
-    
+
         TCIA_API_KEY=xxx-xxx-xxx-xxx
 
 4.  Restart R. `.Renviron` is only processed at the beginning of an R
@@ -75,7 +77,7 @@ Kelly Fountain, Dulcy Wolverton and Debashis Ghosh. Cancer Res August 1
 
 ## More information on the TCIA REST API
 
-  - [API usage
+-   [API usage
     guide](https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+%28REST+API%29+Usage+Guide)
-  - [Object type
+-   [Object type
     definitions](https://wiki.cancerimagingarchive.net/display/Public/TCIA+API+Return+Values)
