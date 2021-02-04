@@ -4,10 +4,16 @@
 \alias{get_series_info}
 \title{Get image series information}
 \usage{
-get_series_info(collection = NULL, patient_id = NULL,
-  study_instance_uid = NULL, series_instance_uid = NULL,
-  modality = NULL, body_part_examined = NULL,
-  manufacturer_model_name = NULL, manufacturer = NULL)
+get_series_info(
+  collection = NULL,
+  patient_id = NULL,
+  study_instance_uid = NULL,
+  series_instance_uid = NULL,
+  modality = NULL,
+  body_part_examined = NULL,
+  manufacturer_model_name = NULL,
+  manufacturer = NULL
+)
 }
 \arguments{
 \item{collection}{TCIA collection name. To get a list of available collection

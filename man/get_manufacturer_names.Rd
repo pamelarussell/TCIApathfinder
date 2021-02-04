@@ -4,8 +4,7 @@
 \alias{get_manufacturer_names}
 \title{Get manufacturer names}
 \usage{
-get_manufacturer_names(collection = NULL, modality = NULL,
-  body_part = NULL)
+get_manufacturer_names(collection = NULL, modality = NULL, body_part = NULL)
 }
 \arguments{
 \item{collection}{TCIA collection name. If \code{collection} is \code{NULL},

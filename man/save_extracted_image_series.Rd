@@ -5,8 +5,11 @@
 \alias{extract_image_series}
 \title{Save a series of DICOM image files to a directory}
 \usage{
-save_extracted_image_series(series_instance_uid, out_dir = NULL,
-  verbose = TRUE)
+save_extracted_image_series(
+  series_instance_uid,
+  out_dir = NULL,
+  verbose = TRUE
+)
 
 extract_image_series(zip_file, out_dir = NULL)
 }
